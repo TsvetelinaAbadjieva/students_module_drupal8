@@ -1,0 +1,22 @@
+access all views:
+  title: 'My students module settings'
+  description: 'A custom permission for your module settings page.'
+  # restrict access: TRUE
+
+access students content:
+  title: 'Permissions for students list access'
+  description: 'Custom permissions for students list'
+
+edit students content:
+  title: 'Permissions for students edit'
+  description: 'Custom permissions for students edit'
+  # restrict access: TRUE
+
+delete students content:
+  title: 'Permissions for students delete'
+  description: 'Custom permissions for students delete'
+  # restrict access: TRUE
+
+access webservice:
+   title: 'Access webservice api'
+   description: 'Give Permission for access webservice content'

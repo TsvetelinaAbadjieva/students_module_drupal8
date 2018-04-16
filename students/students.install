@@ -1,0 +1,55 @@
+<?php
+
+function students_schema() {
+  $schema['students'] = array(
+    // Example (partial) specification for table "node".
+    'description' => 'The base table for students.',
+    'fields' => array(
+      'id' => array(
+        'description' => 'The primary identifier for a student.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      
+      'name' => array(
+        'description' => 'The type of this node.',
+        'type' => 'varchar',
+        'length' => 80,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'faculty_number' => array(
+        'description' => 'The node title.',
+        'type' => 'varchar',
+        'length' => 15,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    'gender' => array(
+        'description' => 'The node title.',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+
+    ),
+    
+    'unique keys' => array(
+      'id' => array(
+        'id',
+      ),
+       'faculty_number' => array(
+        'faculty_number',
+      ),
+    ),
+    // For documentation purposes only; foreign keys are not created in the
+    // database.
+    
+    'primary key' => array(
+      'id',
+    ),
+  );
+  return $schema;
+}

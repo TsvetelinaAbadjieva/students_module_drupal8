@@ -1,0 +1,30 @@
+id: students_resource
+plugin_id: students_resource
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth    
+
+configuration:
+  PUT:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth   
+
+configuration:
+  DELETE:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth           

@@ -1,0 +1,17 @@
+services:
+
+  students.check_access:
+    class: 'Drupal\students\Services\UserCheckAccess'
+    
+  students.get:
+    class:  'Drupal\students\Services\StudentsApiService'
+    arguments:
+            ['@students.check_access']
+#     arguments: ['@current_user']
+    # tags:
+    #    - {name: access_edit}
+#   students.check_access_delete:
+#     class: 'Drupal\students\Services\UserCheckAccess::accessForDelete'
+#     arguments: ['@current_user']
+#     tags: 
+#        - {name: access_delete, applies_to: delete students content}

@@ -1,0 +1,114 @@
+# test_mymodule:
+#     path: /form/show
+#     defaults:
+#         _controller: Drupal\students\Controller\ApiController::build
+#     requirements: 
+#         _permission: 'access content'
+
+form_module.page:
+    path: /custom_form
+    defaults:
+        _content: Drupal\students\Controller\ApiController::displayForm
+    requirements:
+        _permission: 'view content'
+
+student.add.view:
+    path: /admin/config/system/student
+    defaults: 
+        _form:   Drupal\students\Form\CustomFormSettings
+        _title:  'Create student'
+    requirements:
+        _permission:  'administer site configuration'
+        
+students.get.view:
+    path: /admin/config/system/students
+    defaults: 
+        _form:   Drupal\students\Form\StudentsTableForm
+        _title:  'Students list'
+    requirements:
+        _permission:  'administer site configuration'
+
+student.delete.confirm:
+    path: '/confirm/delete/{id}'
+    defaults:
+       _form: '\Drupal\example_module\Form\ConfirmDeleteForm'
+       _title: 'Confirm Deletion'
+    requirements:
+       _permission: 'administer site configuration'
+    id: ^\d+$
+
+
+        
+student.edit:
+    path: /student/edit/{id}
+    defaults: 
+        _controller:   Drupal\students\Controller\StudentController::editStudent
+        
+    requirements:
+        _permission:  'edit students content'
+        # _permission:  'access content'
+
+student.add:
+    path: /student
+    defaults: 
+        _controller:   Drupal\students\Controller\StudentController::addStudent
+        
+    requirements:
+        _permission:  'edit students content'
+        # _permission:  'access content'
+
+student.delete:
+    path: /student/delete/{id}
+    defaults: 
+        _controller:   Drupal\students\Controller\StudentController::deleteStudent
+      
+    requirements:
+        _permission:  'delete students content'
+        # _permission:  'access content'
+
+
+students.get:
+    path: /students
+    defaults: 
+        _controller:   Drupal\students\Controller\StudentController::getAllStudents
+        _title: 'Students list'
+    requirements:
+        _permission:  'access students content'
+        # _permission:  'access content'
+
+
+#
+# expose API routes
+#
+
+api.student.edit:
+    path: /api/student/edit/{id}
+    defaults: 
+        _controller:   Drupal\students\Controller\ApiStudentController::editStudent
+    methods: [PUT]
+    requirements:
+         _permission:  'access webservice'
+
+api.student.add:
+    path: /api/student
+    defaults: 
+       _controller:   Drupal\students\Controller\ApiStudentController::addStudent
+    methods: [POST]
+    requirements:
+       _permission:   'access webservice'
+
+api.student.delete:
+    path: /api/student/delete/{id}
+    defaults: 
+        _controller:   Drupal\students\Controller\ApiStudentController::deleteStudent
+    methods: [DELETE]
+    requirements:
+        _permission:   'access webservice'  
+
+api.students.get:
+    path: /api/students
+    defaults: 
+       _controller:   Drupal\students\Controller\ApiStudentController::getStudents
+    methods: [GET]
+    requirements:
+        _permission:   'access webservice'      

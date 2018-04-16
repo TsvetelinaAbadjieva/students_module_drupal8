@@ -1,0 +1,4 @@
+students-library:
+  version: 1.x
+  js:
+    js/drag-drop.js: {}
